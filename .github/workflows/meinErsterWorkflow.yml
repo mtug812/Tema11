@@ -1,0 +1,23 @@
+name: meinErsterWorkflow
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs: 
+    changed-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: meinErsterStep
+              run: echo "Hallo Welt!"
+            - name: Abschied
+              run: echo "Bye Bye!"
+
+    zweiter-job:
+        runs-on: ubuntu-latest
+        needs: changed-job
+        steps:
+            - name: Datum anzeigen
+              run: date
